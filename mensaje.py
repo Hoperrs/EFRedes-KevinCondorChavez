@@ -6,7 +6,7 @@ app = Flask(__name__)
 db_mensajes = TinyDB('mensajes.json')  # BD para los mensajes
 
 # URL de la API de Autenticación
-AUTENTICACION_URL = 'http://127.0.0.1:5002/autenticar'
+AUTENTICACION_URL = 'http://127.0.0.1:3002/autenticar'
 
 def validar_usuario(usuario):
     """Llama a la API de Autenticación para validar si un usuario está registrado."""
@@ -35,4 +35,4 @@ def leer():
     return jsonify({'mensajes': mensajes}), 200
 
 if __name__ == '__main__':
-    app.run(port=5003, debug=True)
+    app.run(port=3003, debug=True)

@@ -4,8 +4,12 @@ from os import path
 
 app = Flask(__name__)
 
-DB_PATH = path.abspath('C:\\Users\\user\\Desktop\\RedesEF-KevinCondorChavez\\registro.json')
-db = TinyDB(DB_PATH)
+# En Windows: La ruta debe ser abosluta
+# DB_PATH = path.abspath('C:\\Users\\user\\Desktop\\RedesEF-KevinCondorChavez\\registro.json')
+# db = TinyDB(DB_PATH)
+
+# En linux: La ruta puede ser relativa
+db = TinyDB('registro.json')
 
 @app.route('/autenticar', methods=['POST'])
 def autenticar():
@@ -18,4 +22,4 @@ def autenticar():
     return jsonify({'mensaje': 'Usuario no registrado'}), 404
 
 if __name__ == '__main__':
-    app.run(port=5002, debug=True)
+    app.run(port=3002, debug=True)
